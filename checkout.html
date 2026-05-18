@@ -268,28 +268,26 @@
   <!-- Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Cart Script -->
-  <script>
+<script>
 
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    let cartItems = document.getElementById('cart-items');
+let cartItems = document.getElementById('cart-items');
 
-    let total = 0;
+let total = 0;
 
-    function displayCart() {
+function displayCart() {
 
-      cartItems.innerHTML = "";
+    cartItems.innerHTML = "";
 
-      total = 0;
+    total = 0;
 
-      cart.forEach((item, index) => {
+    cart.forEach((item, index) => {
 
         total += item.price;
 
         cartItems.innerHTML += `
-
-          <tr>
+        <tr>
 
             <td>${item.name}</td>
 
@@ -298,37 +296,30 @@
             <td>P${item.price}</td>
 
             <td>
+                <button class="btn btn-danger btn-sm"
+                onclick="removeItem(${index})">
 
-              <button
-              class="btn btn-remove btn-sm"
-              onclick="removeItem(${index})">
+                    Remove
 
-                Remove
-
-              </button>
-
+                </button>
             </td>
 
-          </tr>
-
+        </tr>
         `;
-      });
+    });
 
-      document.getElementById('total-price').innerText = total;
-    }
+    document.getElementById('total-price').innerText = total;
+}
 
-    function removeItem(index) {
+function removeItem(index) {
 
-      cart.splice(index, 1);
+    cart.splice(index, 1);
 
-      localStorage.setItem('cart', JSON.stringify(cart));
-
-      displayCart();
-    }
+    localStorage.setItem('cart', JSON.stringify(cart));
 
     displayCart();
+}
 
-  </script>
+displayCart();
 
-</body>
-</html>
+</script>
