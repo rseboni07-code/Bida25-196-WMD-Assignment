@@ -1,27 +1,4 @@
 <!DOCTYPE html>
-</head>
-<body style="background-color:#fff5f7;">
-<li class="nav-item">
-  <a class="nav-link" href="index.html">Home</a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link" href="about.html">About</a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link" href="custom-order.html">Custom Orders</a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link" href="checkout.html">Checkout</a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link" href="support.html">Support</a>
-</li>
-
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -40,42 +17,16 @@
     }
 
     .checkout-banner {
-      background: linear-gradient(rgba(0,0,0,0.5),
-      rgba(0,0,0,0.5)),
-      url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1200&auto=format&fit=crop');
-
-      background-size: cover;
-      background-position: center;
-      color: white;
-      text-align: center;
+      background-color: #f8c8dc;
       padding: 80px 20px;
+      text-align: center;
     }
 
     .checkout-card {
       background: white;
-      border-radius: 15px;
       padding: 30px;
+      border-radius: 15px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-      margin-top: -50px;
-      position: relative;
-      z-index: 10;
-    }
-
-    .table th {
-      background-color: #f8c8dc;
-    }
-
-    .btn-order {
-      background-color: #ff69b4;
-      color: white;
-      border: none;
-      padding: 12px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .btn-order:hover {
-      background-color: #ff1493;
     }
 
     footer {
@@ -91,55 +42,58 @@
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
     <div class="container">
 
-      <a class="navbar-brand" href="index.html">Sweet Crumbs</a>
+      <a class="navbar-brand" href="index.html">
+        Sweet Crumbs
+      </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class="collapse navbar-collapse">
 
-      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
 
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="index.html">
+              Home
+            </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="custom-order.html">Custom Orders</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link active" href="checkout.html">Checkout</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="support.html">Support</a>
+            <a class="nav-link active" href="checkout.html">
+              Checkout
+            </a>
           </li>
 
         </ul>
+
       </div>
 
     </div>
+
   </nav>
 
   <!-- Banner -->
   <section class="checkout-banner">
-    <h1 class="display-4 fw-bold">Checkout</h1>
-    <p>Complete your cake order below</p>
+
+    <h1 class="display-4 fw-bold">
+      Checkout
+    </h1>
+
+    <p>
+      Review your cake order
+    </p>
+
   </section>
 
-  <!-- Checkout Content -->
-  <div class="container">
+  <!-- Checkout -->
+  <div class="container py-5">
 
     <div class="checkout-card">
 
-      <h2 class="mb-4">Order Summary</h2>
+      <h2 class="mb-4">
+        Order Summary
+      </h2>
 
       <table class="table table-bordered">
 
@@ -151,60 +105,50 @@
           </tr>
         </thead>
 
-        <tbody>
-          <tr>
-            <td>Chocolate Cake</td>
-            <td>1</td>
-            <td>P250</td>
-          </tr>
+        <tbody id="cart-items">
 
-          <tr>
-            <td>Strawberry Cake</td>
-            <td>1</td>
-            <td>P300</td>
-          </tr>
         </tbody>
 
       </table>
 
-      <h4 class="text-end mb-4">Total: <strong>P550</strong></h4>
+      <h4 class="text-end">
+        Total: P<span id="total-price">0</span>
+      </h4>
 
-      <h2 class="mb-4">Delivery Information</h2>
+      <hr>
+
+      <h2 class="mb-4">
+        Delivery Information
+      </h2>
 
       <form>
 
-        <div class="row">
-
-          <div class="col-md-6 mb-3">
-            <input type="text" class="form-control" placeholder="Full Name" required>
-          </div>
-
-          <div class="col-md-6 mb-3">
-            <input type="tel" class="form-control" placeholder="Phone Number" required>
-          </div>
-
+        <div class="mb-3">
+          <input type="text"
+          class="form-control"
+          placeholder="Full Name"
+          required>
         </div>
 
         <div class="mb-3">
-          <input type="text" class="form-control" placeholder="Delivery Address" required>
+          <input type="text"
+          class="form-control"
+          placeholder="Delivery Address"
+          required>
         </div>
 
         <div class="mb-3">
-          <input type="email" class="form-control" placeholder="Email Address" required>
+          <input type="tel"
+          class="form-control"
+          placeholder="Phone Number"
+          required>
         </div>
 
-        <div class="mb-4">
+        <button type="submit"
+        class="btn btn-dark w-100">
 
-          <select class="form-select">
-            <option selected>Select Payment Method</option>
-            <option>Card Payment</option>
-            <option>Cash on Delivery</option>
-          </select>
-
-        </div>
-
-        <button type="submit" class="btn btn-order w-100">
           Confirm Order
+
         </button>
 
       </form>
@@ -216,12 +160,33 @@
   <!-- Footer -->
   <footer>
     <p>© 2026 Sweet Crumbs Cake Delivery</p>
-    <p>Instagram | Facebook | WhatsApp</p>
   </footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Cart Script -->
+  <script>
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    let cartItems = document.getElementById('cart-items');
+
+    let total = 0;
+
+    cart.forEach(item => {
+
+      total += item.price;
+
+      cartItems.innerHTML += `
+        <tr>
+          <td>${item.name}</td>
+          <td>1</td>
+          <td>P${item.price}</td>
+        </tr>
+      `;
+    });
+
+    document.getElementById('total-price').innerText = total;
+
+  </script>
 
 </body>
-
 </html>
