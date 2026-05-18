@@ -11,15 +11,25 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
+
     body {
       background-color: #fff5f7;
       font-family: Arial, sans-serif;
     }
 
     .checkout-banner {
-      background-color: #f8c8dc;
-      padding: 80px 20px;
+      background:
+      linear-gradient(rgba(0,0,0,0.5),
+      rgba(0,0,0,0.5)),
+      url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1200&auto=format&fit=crop');
+
+      background-size: cover;
+      background-position: center;
+
+      padding: 100px 20px;
+
       text-align: center;
+      color: white;
     }
 
     .checkout-card {
@@ -27,6 +37,30 @@
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      margin-top: -50px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .btn-remove {
+      background-color: crimson;
+      color: white;
+      border: none;
+    }
+
+    .btn-remove:hover {
+      background-color: darkred;
+    }
+
+    .btn-confirm {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      font-weight: bold;
+    }
+
+    .btn-confirm:hover {
+      background-color: #ff1493;
     }
 
     footer {
@@ -35,7 +69,9 @@
       text-align: center;
       margin-top: 50px;
     }
+
   </style>
+
 </head>
 
 <body>
@@ -49,7 +85,16 @@
         Sweet Crumbs
       </a>
 
-      <div class="collapse navbar-collapse">
+      <button class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
 
         <ul class="navbar-nav ms-auto">
 
@@ -81,12 +126,12 @@
     </h1>
 
     <p>
-      Review your cake order
+      Review your selected cakes
     </p>
 
   </section>
 
-  <!-- Checkout -->
+  <!-- Checkout Section -->
   <div class="container py-5">
 
     <div class="checkout-card">
@@ -95,14 +140,17 @@
         Order Summary
       </h2>
 
-      <table class="table table-bordered">
+      <table class="table table-bordered align-middle">
 
-        <thead>
+        <thead class="table-dark">
+
           <tr>
             <th>Cake</th>
             <th>Quantity</th>
             <th>Price</th>
+            <th>Action</th>
           </tr>
+
         </thead>
 
         <tbody id="cart-items">
@@ -111,8 +159,11 @@
 
       </table>
 
-      <h4 class="text-end">
-        Total: P<span id="total-price">0</span>
+      <h4 class="text-end mb-4">
+
+        Total:
+        P<span id="total-price">0</span>
+
       </h4>
 
       <hr>
@@ -123,29 +174,73 @@
 
       <form>
 
-        <div class="mb-3">
-          <input type="text"
-          class="form-control"
-          placeholder="Full Name"
-          required>
+        <div class="row">
+
+          <div class="col-md-6 mb-3">
+
+            <input
+            type="text"
+            class="form-control"
+            placeholder="Full Name"
+            required>
+
+          </div>
+
+          <div class="col-md-6 mb-3">
+
+            <input
+            type="tel"
+            class="form-control"
+            placeholder="Phone Number"
+            required>
+
+          </div>
+
         </div>
 
         <div class="mb-3">
-          <input type="text"
+
+          <input
+          type="email"
+          class="form-control"
+          placeholder="Email Address"
+          required>
+
+        </div>
+
+        <div class="mb-3">
+
+          <input
+          type="text"
           class="form-control"
           placeholder="Delivery Address"
           required>
+
         </div>
 
-        <div class="mb-3">
-          <input type="tel"
-          class="form-control"
-          placeholder="Phone Number"
-          required>
+        <div class="mb-4">
+
+          <select class="form-select">
+
+            <option selected>
+              Select Payment Method
+            </option>
+
+            <option>
+              Card Payment
+            </option>
+
+            <option>
+              Cash on Delivery
+            </option>
+
+          </select>
+
         </div>
 
-        <button type="submit"
-        class="btn btn-dark w-100">
+        <button
+        type="submit"
+        class="btn btn-confirm w-100">
 
           Confirm Order
 
@@ -159,8 +254,19 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2026 Sweet Crumbs Cake Delivery</p>
+
+    <p>
+      © 2026 Sweet Crumbs Cake Delivery
+    </p>
+
+    <p>
+      Instagram | Facebook | WhatsApp
+    </p>
+
   </footer>
+
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Cart Script -->
   <script>
@@ -171,20 +277,56 @@
 
     let total = 0;
 
-    cart.forEach(item => {
+    function displayCart() {
 
-      total += item.price;
+      cartItems.innerHTML = "";
 
-      cartItems.innerHTML += `
-        <tr>
-          <td>${item.name}</td>
-          <td>1</td>
-          <td>P${item.price}</td>
-        </tr>
-      `;
-    });
+      total = 0;
 
-    document.getElementById('total-price').innerText = total;
+      cart.forEach((item, index) => {
+
+        total += item.price;
+
+        cartItems.innerHTML += `
+
+          <tr>
+
+            <td>${item.name}</td>
+
+            <td>1</td>
+
+            <td>P${item.price}</td>
+
+            <td>
+
+              <button
+              class="btn btn-remove btn-sm"
+              onclick="removeItem(${index})">
+
+                Remove
+
+              </button>
+
+            </td>
+
+          </tr>
+
+        `;
+      });
+
+      document.getElementById('total-price').innerText = total;
+    }
+
+    function removeItem(index) {
+
+      cart.splice(index, 1);
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      displayCart();
+    }
+
+    displayCart();
 
   </script>
 
