@@ -1,260 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Sweet Crumbs Cake Delivery</title>
 
-  <!-- Bootstrap 5 -->
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
+
     body {
-      font-family: Arial, sans-serif;
       background-color: #fff5f7;
+      font-family: Arial, sans-serif;
     }
 
     .hero {
+      background:
+      linear-gradient(rgba(0,0,0,0.5),
+      rgba(0,0,0,0.5)),
+      url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1200&auto=format&fit=crop');
+
+      background-size: cover;
+      background-position: center;
+
       height: 500px;
-      background: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+
       text-align: center;
       color: white;
     }
 
     .hero h1 {
-      font-size: 4rem;
-      font-weight: bold;
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .section-title {
-      text-align: center;
-      margin: 50px 0 20px;
       font-weight: bold;
     }
 
-    .card img {
+    .gallery-img {
       height: 250px;
+      width: 100%;
       object-fit: cover;
+      transition: 0.3s ease;
+    }
+
+    .gallery-img:hover {
+      transform: scale(1.05);
     }
 
     footer {
       background-color: #f8c8dc;
       padding: 20px;
       text-align: center;
-      margin-top: 40px;
+      margin-top: 50px;
     }
 
-    @media screen and (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-
-        .gallery-img {
-    height: 250px;
-    width: 100%;
-    object-fit: cover;
-    transition: 0.3s ease;
-}
-
-.gallery-img:hover {
-    transform: scale(1.05);
-}
-      }
-    }
   </style>
+
 </head>
+
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-  <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-    <a class="navbar-brand" href="index.html">Sweet Crumbs</a>
+    <div class="container">
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <a class="navbar-brand" href="index.html">
+        Sweet Crumbs
+      </a>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+      <button class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav">
 
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
+        <span class="navbar-toggler-icon"></span>
 
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About Us</a>
-        </li>
+      </button>
 
-        <li class="nav-item">
-          <a class="nav-link" href="custom-order.html">Custom Orders</a>
-        </li>
+      <div class="collapse navbar-collapse" id="navbarNav">
 
-        <li class="nav-item">
-          <a class="nav-link" href="checkout.html">Checkout</a>
-        </li>
+        <ul class="navbar-nav ms-auto">
 
-        <li class="nav-item">
-          <a class="nav-link" href="support.html">Support</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">
+              Home
+            </a>
+          </li>
 
-      </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">
+              About
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="custom-order.html">
+              Custom Orders
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="checkout.html">
+              Checkout
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="support.html">
+              Support
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
     </div>
 
-  </div>
-</nav>
+  </nav>
 
   <!-- Hero Section -->
-  <section class="hero" id="home">
+  <section class="hero">
+
     <div>
-      <h1>Delicious Cakes Delivered To You</h1>
-      <button class="btn btn-light btn-lg mt-3" onclick="orderNow()">Order Now</button>
+
+      <h1 class="display-3">
+        Delicious Cakes Delivered To You
+      </h1>
+
+      <a href="#cakes"
+      class="btn btn-light btn-lg mt-3">
+
+        Order Now
+
+      </a>
+
     </div>
+
   </section>
 
-  <!-- Cakes Section -->
-  <section class="container" id="cakes">
-    <h2 class="section-title">Featured Cakes</h2>
+  <!-- Featured Cakes -->
+  <section class="container py-5" id="cakes">
+
+    <h2 class="text-center fw-bold mb-5">
+      Featured Cakes
+    </h2>
 
     <div class="row g-4">
 
+      <!-- Chocolate Cake -->
       <div class="col-md-4">
+
         <div class="card shadow">
-          <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=800&auto=format&fit=crop" class="card-img-top" alt="Chocolate Cake">
+
+          <img
+          src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=800&auto=format&fit=crop"
+          class="card-img-top"
+          alt="Chocolate Cake">
+
           <div class="card-body text-center">
-            <h5 class="card-title">Chocolate Cake</h5>
-            <p class="card-text">P250</p>
-            <button class="btn btn-pink btn-primary" onclick="addToCart('Chocolate Cake')">Add to Cart</button>
+
+            <h5 class="card-title">
+              Chocolate Cake
+            </h5>
+
+            <p class="card-text">
+              P250
+            </p>
+
+            <button class="btn btn-primary"
+            onclick="addToCart('Chocolate Cake', 250)">
+
+              Add to Cart
+
+            </button>
+
           </div>
+
         </div>
+
       </div>
 
+      <!-- Strawberry Cake -->
       <div class="col-md-4">
+
         <div class="card shadow">
-          <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=800&auto=format&fit=crop" class="card-img-top" alt="Strawberry Cake">
+
+          <img
+          src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=800&auto=format&fit=crop"
+          class="card-img-top"
+          alt="Strawberry Cake">
+
           <div class="card-body text-center">
-            <h5 class="card-title">Strawberry Cake</h5>
-            <p class="card-text">P300</p>
-            <button class="btn btn-primary" onclick="addToCart('Strawberry Cake')">Add to Cart</button>
+
+            <h5 class="card-title">
+              Strawberry Cake
+            </h5>
+
+            <p class="card-text">
+              P300
+            </p>
+
+            <button class="btn btn-primary"
+            onclick="addToCart('Strawberry Cake', 300)">
+
+              Add to Cart
+
+            </button>
+
           </div>
+
         </div>
+
       </div>
 
+      <!-- Wedding Cake -->
       <div class="col-md-4">
+
         <div class="card shadow">
-          <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=800&auto=format&fit=crop" class="card-img-top" alt="Wedding Cake">
+
+          <img
+          src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?q=80&w=800&auto=format&fit=crop"
+          class="card-img-top"
+          alt="Wedding Cake">
+
           <div class="card-body text-center">
-            <h5 class="card-title">Wedding Cake</h5>
-            <p class="card-text">P800</p>
-            <button class="btn btn-primary" onclick="addToCart('Wedding Cake')">Add to Cart</button>
+
+            <h5 class="card-title">
+              Wedding Cake
+            </h5>
+
+            <p class="card-text">
+              P800
+            </p>
+
+            <button class="btn btn-primary"
+            onclick="addToCart('Wedding Cake', 800)">
+
+              Add to Cart
+
+            </button>
+
           </div>
+
         </div>
+
       </div>
 
     </div>
+
   </section>
-  <!-- Cake Gallery Section -->
-<section class="container py-5">
 
-  <h2 class="text-center mb-5 fw-bold">Cake Gallery</h2>
+  <!-- Cake Gallery -->
+  <section class="container py-5">
 
-  <div class="row g-4">
+    <h2 class="text-center fw-bold mb-5">
+      Cake Gallery
+    </h2>
 
-    <div class="col-md-3 col-sm-6">
-      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop"
-           class="img-fluid rounded shadow"
-           alt="Cake 1">
+    <div class="row g-4">
+
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <img
+        src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop"
+        class="img-fluid rounded shadow gallery-img"
+        alt="Cake">
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <img
+        src="https://images.unsplash.com/photo-1559620192-032c4bc4674e?q=80&w=800&auto=format&fit=crop"
+        class="img-fluid rounded shadow gallery-img"
+        alt="Cake">
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <img
+        src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800&auto=format&fit=crop"
+        class="img-fluid rounded shadow gallery-img"
+        alt="Cake">
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <img
+        src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?q=80&w=800&auto=format&fit=crop"
+        class="img-fluid rounded shadow gallery-img"
+        alt="Cake">
+      </div>
+
     </div>
 
-    <div class="col-md-3 col-sm-6">
-      <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=800&auto=format&fit=crop"
-           class="img-fluid rounded shadow"
-           alt="Cake 2">
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-      <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=800&auto=format&fit=crop"
-           class="img-fluid rounded shadow"
-           alt="Cake 3">
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-      <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=800&auto=format&fit=crop"
-           class="img-fluid rounded shadow"
-           alt="Cake 4">
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-      <img src="https://images.unsplash.com/photo-1559620192-032c4bc4674e?q=80&w=800&auto=format&fit=crop"
-           class="img-fluid rounded shadow"
-           alt="Cake 5">
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-      <img src="https://images.unsplash.com/photo-1464306076886-da185f6a9d05?q=80&w=800&auto=format&fit=crop"
-           class="img-fluid rounded shadow"
-           alt="Cake 6">
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-      <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800&auto=format&fit=crop"
-           class="img-fluid rounded shadow"
-           alt="Cake 7">
-    </div>
-
-  
-
-  </div>
-
-</section>
-
-
+  </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2026 Sweet Crumbs Cake Delivery</p>
-    <p>Instagram | Facebook | WhatsApp</p>
+
+    <p>
+      © 2026 Sweet Crumbs Cake Delivery
+    </p>
+
+    <p>
+      Instagram | Facebook | WhatsApp
+    </p>
+
   </footer>
 
-  <!-- Bootstrap JS -->
+  <!-- Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- JavaScript -->
+  <!-- Cart Script -->
   <script>
-    function addToCart(cakeName) {
-      alert(cakeName + ' added to cart!');
-    }
 
-    function orderNow() {
-      document.getElementById('cakes').scrollIntoView({
-        behavior: 'smooth'
+    function addToCart(name, price) {
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      cart.push({
+        name: name,
+        price: price
       });
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      alert(name + " added to cart!");
     }
 
-    function submitForm(event) {
-      event.preventDefault();
-      alert('Message sent successfully!');
-    }
   </script>
 
 </body>
 </html>
-
-
 
 
